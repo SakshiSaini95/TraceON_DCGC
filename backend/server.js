@@ -1,4 +1,4 @@
-
+﻿
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -18,12 +18,14 @@ const userRoutes = require("./routes/userRoutes");
 const sellerRoutes = require("./routes/sellerRoutes");
 const riskAnalysisRoutes = require("./routes/riskAnalysisRoutes");
 const reportRoutes = require("./routes/reportRoutes");
+const linkRoutes = require("./routes/linkRoutes");
 
 // Register routes
 app.use("/api/users", userRoutes);
 app.use("/api/sellers", sellerRoutes);
 app.use("/api/sellers", riskAnalysisRoutes);
 app.use("/api/reports", reportRoutes);
+app.use("/api/links", linkRoutes);
 
 // Health check API
 app.get("/", (req, res) => {
@@ -56,3 +58,4 @@ app.get("/api/test-db", (req, res) => {
 app.listen(PORT, () => {
     console.log(`TRACEON backend running on port ${PORT}`);
 });
+

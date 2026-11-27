@@ -1,4 +1,4 @@
-
+﻿
 const Database = require("better-sqlite3");
 const path = require("path");
 const fs = require("fs");
@@ -170,6 +170,26 @@ db.exec(`
         ON evidence(related_seller_id, verification_status);
 `);
 
+
+db.exec(`
+    CREATE TABLE IF NOT EXISTS link_reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        domain TEXT NOT NULL,
+        category TEXT NOT NULL,
+        description TEXT NOT NULL,
+        reporter_key TEXT,
+        verification_status TEXT NOT NULL DEFAULT 'unverified',
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_link_report_duplicate
+    ON link_reports(domain, reporter_key)
+    WHERE reporter_key IS NOT NULL;
+
+    CREATE INDEX IF NOT EXISTS idx_link_reports_domain
+    ON link_reports(domain);
+`);
 console.log("SQLite database connected successfully!");
 
 module.exports = db;
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRACEON</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-mark"><span></span><span></span><span></span></div>
+        <div class="brand-name">TRACE<span>ON</span></div>
+      </div>
+      <div class="status"><i></i> SYSTEM LIVE</div>
+    </header>
+
+    <section class="hero">
+      <div class="section-label">SELLER INTELLIGENCE / 001</div>
+      <h1>TRUST<br>IS <span>VERIFIED.</span></h1>
+      <p>Investigate seller profiles before you make your next move.</p>
+    </section>
+
+    <section class="lookup">
+      <label for="sellerInput">TARGET IDENTIFICATION</label>
+      <div class="lookup-form">
+        <span class="at">@</span>
+        <input id="sellerInput" placeholder="Username or profile URL">
+      </div>
+      <button id="checkBtn" class="check-button">
+        INITIATE SCAN <span>?</span>
+      </button>
+      <div class="hint">INSTAGRAM SELLER VERIFICATION</div>
+    </section>
+
+    <div id="message" class="message hidden"></div>
+
+    <section id="result" class="result hidden">
+      <div class="result-top">
+        <div>
+          <div class="section-label">SCAN REPORT / 001</div>
+          <h2 id="sellerName">@seller</h2>
+          <p id="sellerPlatform">Instagram seller</p>
+        </div>
+        <span id="riskBadge" class="badge unknown">PENDING</span>
+      </div>
+
+      <div class="score-panel">
+        <div class="score-ring" id="scoreRing">
+          <strong id="riskScore">--</strong>
+          <small>RISK / 100</small>
+        </div>
+        <div class="score-info">
+          <div class="section-label">RISK ASSESSMENT</div>
+          <h3 id="riskTitle">Analysis pending</h3>
+          <p id="riskSummary">Waiting for analysis.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div><strong id="verifiedCount">0</strong><small>VERIFIED</small></div>
+        <div><strong id="pendingCount">0</strong><small>UNVERIFIED</small></div>
+        <div><strong id="confidence">--</strong><small>CONFIDENCE</small></div>
+      </div>
+
+      <div class="signals-section">
+        <div class="section-label">DETECTED SIGNALS</div>
+        <div id="signalsList">
+          <p>No signals recorded.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>TRACEON SECURITY INTELLIGENCE</span>
+      <span>V1.0.0</span>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:#0b0c0a;
+  --surface:#151714;
+  --surface2:#1d201b;
+  --line:#2f332b;
+  --ink:#f2f2ec;
+  --muted:#9a9d93;
+  --lime:#d4ff00;
+  --danger:#ff5a4d;
+  --warn:#ffb020;
+  --ok:#4be08a;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  width:390px;
+  min-height:500px;
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.app {
+  padding:22px;
+  background-image:radial-gradient(rgba(212,255,0,.055) 1px,transparent 1px);
+  background-size:18px 18px;
+}
+
+.topbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:17px;
+  border-bottom:1px solid var(--line);
+}
+
+.brand { display:flex;align-items:center;gap:11px; }
+
+.logo-mark {
+  width:27px;height:27px;
+  position:relative;
+  border:2px solid var(--lime);
+  border-radius:9px 9px 12px 12px;
+  transform:rotate(-7deg);
+}
+
+.logo-mark:before {
+  content:'';
+  position:absolute;
+  top:6px;left:5px;
+  width:13px;height:5px;
+  border-top:2px solid var(--lime);
+  border-bottom:2px solid var(--lime);
+}
+
+.logo-mark span {
+  position:absolute;
+  bottom:3px;width:3px;height:3px;
+  border-radius:50%;background:var(--lime);
+}
+.logo-mark span:nth-child(1){left:4px}
+.logo-mark span:nth-child(2){left:11px;bottom:1px}
+.logo-mark span:nth-child(3){right:3px}
+
+.brand-name {
+  font:23px 'Anton',sans-serif;
+  letter-spacing:1px;
+}
+.brand-name span {color:var(--lime)}
+
+.status {
+  color:var(--ok);
+  font:9px 'DM Mono',monospace;
+}
+.status i {
+  display:inline-block;width:6px;height:6px;
+  margin-right:5px;border-radius:50%;
+  background:var(--ok);
+  box-shadow:0 0 9px var(--ok);
+}
+
+.hero { padding:29px 0 23px; }
+
+.section-label {
+  color:var(--lime);
+  font:10px 'DM Mono',monospace;
+  letter-spacing:1px;
+}
+
+.hero h1 {
+  margin:13px 0;
+  font:51px/.88 'Anton',sans-serif;
+  letter-spacing:.5px;
+}
+.hero h1 span {color:var(--lime)}
+
+.hero p {
+  max-width:290px;
+  margin:15px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.lookup {
+  padding:17px;
+  background:var(--surface);
+  border:1px solid var(--line);
+}
+
+.lookup label {
+  display:block;
+  margin-bottom:11px;
+  color:var(--muted);
+  font:10px 'DM Mono',monospace;
+  letter-spacing:1px;
+}
+
+.lookup-form {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 12px;
+  height:43px;
+  background:var(--bg);
+  border:1px solid var(--line);
+}
+
+.lookup-form:focus-within {border-color:var(--lime)}
+
+.at {color:var(--lime);font:16px 'DM Mono',monospace}
+
+.lookup-form input {
+  width:100%;
+  min-width:0;
+  color:var(--ink);
+  background:none;
+  border:0;
+  outline:none;
+  font:12px 'DM Mono',monospace;
+}
+
+.lookup-form input::placeholder {color:#686d61}
+
+.check-button {
+  width:100%;
+  height:43px;
+  margin-top:11px;
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--lime);
+  color:var(--bg);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1px;
+  transition:.2s;
+}
+.check-button:hover:not(:disabled) {
+  transform:translate(-2px,-2px);
+  box-shadow:4px 4px 0 rgba(212,255,0,.2);
+}
+.check-button:disabled {opacity:.65;cursor:progress}
+
+.hint {
+  margin-top:12px;
+  color:var(--muted);
+  font:9px 'DM Mono',monospace;
+}
+
+.message {
+  margin-top:13px;
+  padding:12px;
+  background:var(--surface2);
+  border-left:3px solid var(--warn);
+  color:var(--ink);
+  font-size:11px;
+  line-height:1.5;
+}
+.hidden {display:none!important}
+
+.result {
+  margin-top:17px;
+  padding:16px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  animation:rise .35s ease;
+}
+
+.result-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.result-top h2 {
+  margin:7px 0 3px;
+  font:23px 'Anton',sans-serif;
+}
+.result-top p {margin:0;color:var(--muted);font-size:10px}
+
+.badge {
+  padding:6px 8px;
+  border:1px solid currentColor;
+  font:9px 'DM Mono',monospace;
+  white-space:nowrap;
+}
+.badge.low {color:var(--ok)}
+.badge.medium {color:var(--warn)}
+.badge.high {color:var(--danger)}
+.badge.unknown {color:var(--muted)}
+
+.score-panel {
+  display:flex;
+  align-items:center;
+  gap:17px;
+  margin-top:20px;
+  padding:16px 10px;
+  background:var(--surface2);
+  border:1px solid var(--line);
+}
+
+.score-ring {
+  --tone:var(--lime);
+  --pct:0%;
+  flex-shrink:0;
+  width:100px;height:100px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:
+    radial-gradient(closest-side,var(--surface2) 83%,transparent 85%),
+    conic-gradient(var(--tone) var(--pct),#34382e 0);
+}
+.score-ring strong {font:35px 'Anton',sans-serif}
+.score-ring small {
+  color:var(--muted);
+  font:8px 'DM Mono',monospace;
+}
+
+.score-info {min-width:0;flex:1}
+.score-info h3 {
+  margin:9px 0 5px;
+  font:22px 'Anton',sans-serif;
+}
+.score-info p {
+  margin:0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin:15px 0;
+  padding:13px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  text-align:center;
+}
+.stats strong {
+  display:block;
+  font:22px 'Anton',sans-serif;
+}
+.stats small {
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font:8px 'DM Mono',monospace;
+}
+
+.signals-section h3 {font:20px 'Anton',sans-serif}
+
+#signalsList {margin-top:10px}
+#signalsList>p {color:var(--muted);font-size:10px}
+
+.signal {
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+.signal strong {font-size:11px}
+.signal p {
+  margin:5px 0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+}
+.signal small {
+  color:var(--lime);
+  font:9px 'DM Mono',monospace;
+}
+
+footer {
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+  padding-top:12px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font:8px 'DM Mono',monospace;
+  letter-spacing:.5px;
+}
+
+@keyframes rise {
+  from {opacity:0;transform:translateY(10px)}
+  to {opacity:1;transform:translateY(0)}
+}
